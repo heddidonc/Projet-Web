@@ -69,6 +69,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#"><span class="glyphicon glyphicon-user"></span> Votre Compte </a></li>
+        <li><a ref="#"><span class="glyphicon glyphicon-lock"></span> Admin</a></li>        
         <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Panier </a></li>
       </ul>
     </div>
