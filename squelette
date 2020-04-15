@@ -1,0 +1,103 @@
+<html>
+    <head>
+       <meta charset="utf-8">
+        
+        <link rel="stylesheet" href="style.css" media="screen" type="text/css" />
+    </head>
+    <body>
+        <div id="container">
+            
+            
+            <form action="verification.php" method="POST">
+                
+                
+            <h1>Inscription</h1>
+                
+                <label><b>Votre Nom :</b></label>
+                <input type="text" placeholder="Entrer votre nom" name="name" required><br>
+                
+                <label><b>Votre Prénom :</b></label>
+                <input type="text" placeholder="Entrer votre prénom" name="firstname" required><br>
+                
+                <label><b>Votre Adresse :</b></label>
+                <input type="text" placeholder="Entrer votre adresse" name="adresse" required><br>
+                
+                
+                <label><b>Votre Ville :</b></label>
+                <input type="text" placeholder="Entrer votre ville" name="ville" required><br>
+                
+                <label><b>Votre mail :</b></label>
+                <input type="text" placeholder="Entrer votre mail" name="mail" required><br>
+                
+
+                <label><b>Mot de passe :</b></label>
+                <input type="password" placeholder="Entrer le mot de passe" name="password" required>
+
+                <input type="submit" id='submit' value='Connexion' >
+                
+                
+                
+                
+                
+
+            </form>
+        </div>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+body{
+    background: blue;
+}
+#container{
+    width:400px;
+    margin:0 auto;
+    margin-top:10%;
+}
+
+form {
+    width:100%;
+    padding: 30px;
+    border: 1px solid black;
+    background: #fff;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+#container h1{
+    width: 40%;
+    margin: 0 auto;
+    padding-bottom: 10px;
+}
+
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid black;
+    box-sizing: border-box;
+}
+
+
+input[type=submit] {
+    background-color: black;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+input[type=submit]:hover {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+}
+
+
