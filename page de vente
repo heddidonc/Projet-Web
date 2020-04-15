@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+
+  <title>Vendre sur Ebay ECE</title>
+
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <script type="text/javascript">
+
+
+
+    function saisirDureeEnchere (dureeSouhaite)
+    {
+      while (dureeSouhaite>0)
+      {
+      alert(dureeSouhaite);
+      SetTimeout(dureeSouhaite,1000);
+      }
+      dureeSouhaite--;
+    }
+
+    
+  </script>
+
+  <style>
+
+      
+      
+
+      /* Remove the navbar's default rounded borders and increase the bottom margin */ 
+
+    .navbar {
+
+      margin-bottom: 100px;
+
+      border-radius: 0;
+
+    }
+
+    
+
+    /* Remove the jumbotron's default bottom margin */ 
+
+     .jumbotron {
+
+      margin-bottom: 0;
+
+         background-image: url("eceimage.png");
+
+          background-color: #fafafa;
+
+    }
+
+   
+
+    /* Add a gray background color and some padding to the footer */
+
+    footer {
+
+      background-color: #f2f2f2;
+
+      padding: 25px;
+
+    }
+
+    
+
+    
+
+    
+
+    </style>
+
+    
+
+    
+
+    
+
+</head>
+
+<body>
+
+  
+
+    <div id="header"></div>
+
+       
+
+<div class="jumbotron">
+
+  <div class="container text-center">
+
+    <h1>Ebay ECE</h1>      
+
+    <p>La vente aux enchères en ligne pour la communauté ECE Paris</p>
+
+  </div>
+
+</div>
+
+    
+
+
+
+<nav class="navbar navbar-inverse">
+
+  <div class="container-fluid">
+
+    <div class="navbar-header">
+
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+
+        <span class="icon-bar"></span>
+
+        <span class="icon-bar"></span>
+
+        <span class="icon-bar"></span>                        
+
+      </button>
+
+      <a class="navbar-brand" href="#">ECE</a>
+
+    </div>
+
+    <div class="collapse navbar-collapse" id="myNavbar">
+
+      <ul class="nav navbar-nav">
+
+        <li class="active"><a href="pagePrincipale.html">Accueil</a></li>
+
+        <li><a href="acheter.html#Catégories#">Catégories</a></li>
+
+        <li><a href="acheter.html">Achats</a></li>
+
+        <li><a href="vendre.html">Vendre</a></li>
+
+        <li><a href="#">Contact</a></li>
+
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Votre Compte </a></li>
+
+        <li><a ref="#"><span class="glyphicon glyphicon-lock"></span> Admin</a></li>        
+
+        <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Panier </a></li>
+
+      </ul>
+
+    </div>
+
+  </div>
+
+</nav>
+
+<div class="container">
+  <p>       
+    <h1 align="center">Vendez vos items sur notre site!</h1>
+  </p>
+</br></br>
+    <form action="" method="post">
+      <table>
+            <tr>
+                <td>Nom de l'item:</td>
+                <td><input type="text" name="nom"></td>
+            </tr><br>
+            <tr>
+              <td>Catégorie de l'objet à vendre:</td>
+              <td><input type="radio" name="Catégorie" value="Tresor/Feraille">Trésor ou Feraille<input type="radio" name="Catégorie" value="Musée">Bon pour le musée<input type="radio" name= "Catégorie" value="AccesoirVip">Accessoir VIP</td>
+            </tr><br>
+            <tr>
+                <td>prix achat immédiat:</td>
+                <td><input type="number" name="prix"></td>
+            </tr><br>
+            <tr>
+                <td>Mode de vente:</td>
+                <td><input type="radio" name="Vente" value="Enchere">enchère
+                    <input type="radio" name="Vente"  value="meilleurOffre">Meilleur offre
+                    <input type="radio" name="Vente" value="AchatImmediat">Achat immédiat
+                    <input type="radio" name="Vente" value="AchatImmediat+Enchere">Achat immédiat et enchere
+                </td><br>
+            </tr>
+            
+            <tr>
+                <td>Description de l'objet:</td>
+                <td><textarea rows="4" cols="25" name="commentaire"></textarea></td>
+            </tr>
+            
+</table>
+          <tr>
+              <input type="hidden" name="Photo" value="200" /> <input name="file" type="file" />
+            </tr><br>
+            <input type="submit" value="valider l'annonce"/>
+      
+    </form>
+</div>
+</body>
+</html>
