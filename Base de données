@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le :  ven. 17 avr. 2020 à 13:47
+-- Généré le :  ven. 17 avr. 2020 à 15:48
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.4.2
 
@@ -91,7 +91,7 @@ CREATE TABLE `meilleur offre` (
 --
 
 CREATE TABLE `membre` (
-  `ID` int(11) NOT NULL,
+  `IDmembre` int(11) NOT NULL,
   `Nom` varchar(255) NOT NULL,
   `Prénom` varchar(255) NOT NULL,
   `Adresse` varchar(255) NOT NULL,
@@ -104,9 +104,9 @@ CREATE TABLE `membre` (
 -- Déchargement des données de la table `membre`
 --
 
-INSERT INTO `membre` (`ID`, `Nom`, `Prénom`, `Adresse`, `Ville`, `Mail`, `Motdepasse`) VALUES
+INSERT INTO `membre` (`IDmembre`, `Nom`, `Prénom`, `Adresse`, `Ville`, `Mail`, `Motdepasse`) VALUES
 (1, 'Adoudi', 'Heddi', 'Le castellas', 'Marseille', 'heddi.adoudi@gmail.com', 'heddiheddi'),
-(2, '', '', 'neuilly', 'paris', 'darou.memdes@gmail.com', ''),
+(2, '', '', 'neuilly', 'Marseille', 'darou.memdes@gmail.com', ''),
 (3, '', '', 'marseille', 'marseille', 'hadda@live.fr', ''),
 (4, '', '', 'chemin', 'marseille', 'mehdi@live.fr', ''),
 (5, '', '', 'eqge', 'reqg', 'fqdsfd@live.fr', ''),
@@ -133,7 +133,7 @@ CREATE TABLE `panier` (
 
 CREATE TABLE `produit` (
   `IDproduit` int(11) NOT NULL,
-  `Nomitem` varchar(255) NOT NULL,
+  `Item` varchar(255) NOT NULL,
   `Catégorie` varchar(255) NOT NULL,
   `Prix` int(11) NOT NULL,
   `Modedevente` varchar(255) NOT NULL,
@@ -144,7 +144,7 @@ CREATE TABLE `produit` (
 -- Déchargement des données de la table `produit`
 --
 
-INSERT INTO `produit` (`IDproduit`, `Nomitem`, `Catégorie`, `Prix`, `Modedevente`, `Descriptiondelobjet`) VALUES
+INSERT INTO `produit` (`IDproduit`, `Item`, `Catégorie`, `Prix`, `Modedevente`, `Descriptiondelobjet`) VALUES
 (1, 'Collier', 'Accessoires VIP', 200, '1', 'Ce magnifique collier'),
 (2, 'Montres', 'Accessoires VIP', 400, '2', 'Cette magnifique montre'),
 (3, 'tableau', 'Bon pour le musée', 500, '3', 'excellent tableau');
@@ -197,7 +197,7 @@ ALTER TABLE `meilleur offre`
 -- Index pour la table `membre`
 --
 ALTER TABLE `membre`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`IDmembre`);
 
 --
 -- Index pour la table `panier`
@@ -255,7 +255,7 @@ ALTER TABLE `meilleur offre`
 -- AUTO_INCREMENT pour la table `membre`
 --
 ALTER TABLE `membre`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `IDmembre` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT pour la table `panier`
