@@ -1,0 +1,276 @@
+-- phpMyAdmin SQL Dump
+-- version 4.9.3
+-- https://www.phpmyadmin.net/
+--
+-- Hôte : localhost:3306
+-- Généré le :  ven. 17 avr. 2020 à 13:47
+-- Version du serveur :  5.7.26
+-- Version de PHP :  7.4.2
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- Base de données :  `notresite`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `achatimmediat`
+--
+
+CREATE TABLE `achatimmediat` (
+  `IDachat` int(11) NOT NULL,
+  `Item` varchar(255) NOT NULL,
+  `Prix` int(11) NOT NULL,
+  `Description` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `achatimmediat`
+--
+
+INSERT INTO `achatimmediat` (`IDachat`, `Item`, `Prix`, `Description`) VALUES
+(1, '', 240, ''),
+(2, '', 5645, ''),
+(3, 'colier', 3463, 'joli bijoux pour ta femme');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `admin`
+--
+
+CREATE TABLE `admin` (
+  `IDadmin` int(11) NOT NULL,
+  `Identifiant` varchar(255) NOT NULL,
+  `Motdepasse` varchar(255) NOT NULL,
+  `diff` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `cartebleue`
+--
+
+CREATE TABLE `cartebleue` (
+  `IDcarte` int(11) NOT NULL,
+  `Code` int(80) NOT NULL,
+  `Date` int(11) NOT NULL,
+  `Nomdutitulaire` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `encheres`
+--
+
+CREATE TABLE `encheres` (
+  `IDencheres` int(11) NOT NULL,
+  `Nomproduit` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `meilleur offre`
+--
+
+CREATE TABLE `meilleur offre` (
+  `IDmeilleure` int(11) NOT NULL,
+  `Nomproduit` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `membre`
+--
+
+CREATE TABLE `membre` (
+  `ID` int(11) NOT NULL,
+  `Nom` varchar(255) NOT NULL,
+  `Prénom` varchar(255) NOT NULL,
+  `Adresse` varchar(255) NOT NULL,
+  `Ville` varchar(255) NOT NULL,
+  `Mail` varchar(255) NOT NULL,
+  `Motdepasse` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `membre`
+--
+
+INSERT INTO `membre` (`ID`, `Nom`, `Prénom`, `Adresse`, `Ville`, `Mail`, `Motdepasse`) VALUES
+(1, 'Adoudi', 'Heddi', 'Le castellas', 'Marseille', 'heddi.adoudi@gmail.com', 'heddiheddi'),
+(2, '', '', 'neuilly', 'paris', 'darou.memdes@gmail.com', ''),
+(3, '', '', 'marseille', 'marseille', 'hadda@live.fr', ''),
+(4, '', '', 'chemin', 'marseille', 'mehdi@live.fr', ''),
+(5, '', '', 'eqge', 'reqg', 'fqdsfd@live.fr', ''),
+(6, 'papa', 'maman', 'perreux', 'paris', 'papaman@live.com', 'papamaman');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `panier`
+--
+
+CREATE TABLE `panier` (
+  `IDpaiement` int(11) NOT NULL,
+  `Montant` int(11) NOT NULL,
+  `Adressedelivraison` varchar(255) NOT NULL,
+  `Typedepaiement` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `produit`
+--
+
+CREATE TABLE `produit` (
+  `IDproduit` int(11) NOT NULL,
+  `Nomitem` varchar(255) NOT NULL,
+  `Catégorie` varchar(255) NOT NULL,
+  `Prix` int(11) NOT NULL,
+  `Modedevente` varchar(255) NOT NULL,
+  `Descriptiondelobjet` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `produit`
+--
+
+INSERT INTO `produit` (`IDproduit`, `Nomitem`, `Catégorie`, `Prix`, `Modedevente`, `Descriptiondelobjet`) VALUES
+(1, 'Collier', 'Accessoires VIP', 200, '1', 'Ce magnifique collier'),
+(2, 'Montres', 'Accessoires VIP', 400, '2', 'Cette magnifique montre'),
+(3, 'tableau', 'Bon pour le musée', 500, '3', 'excellent tableau');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `vendeur`
+--
+
+CREATE TABLE `vendeur` (
+  `IDvendeur` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `achatimmediat`
+--
+ALTER TABLE `achatimmediat`
+  ADD PRIMARY KEY (`IDachat`);
+
+--
+-- Index pour la table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`IDadmin`);
+
+--
+-- Index pour la table `cartebleue`
+--
+ALTER TABLE `cartebleue`
+  ADD PRIMARY KEY (`IDcarte`);
+
+--
+-- Index pour la table `encheres`
+--
+ALTER TABLE `encheres`
+  ADD PRIMARY KEY (`IDencheres`);
+
+--
+-- Index pour la table `meilleur offre`
+--
+ALTER TABLE `meilleur offre`
+  ADD PRIMARY KEY (`IDmeilleure`);
+
+--
+-- Index pour la table `membre`
+--
+ALTER TABLE `membre`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Index pour la table `panier`
+--
+ALTER TABLE `panier`
+  ADD PRIMARY KEY (`IDpaiement`);
+
+--
+-- Index pour la table `produit`
+--
+ALTER TABLE `produit`
+  ADD PRIMARY KEY (`IDproduit`);
+
+--
+-- Index pour la table `vendeur`
+--
+ALTER TABLE `vendeur`
+  ADD PRIMARY KEY (`IDvendeur`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `achatimmediat`
+--
+ALTER TABLE `achatimmediat`
+  MODIFY `IDachat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT pour la table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `IDadmin` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `cartebleue`
+--
+ALTER TABLE `cartebleue`
+  MODIFY `IDcarte` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `encheres`
+--
+ALTER TABLE `encheres`
+  MODIFY `IDencheres` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `meilleur offre`
+--
+ALTER TABLE `meilleur offre`
+  MODIFY `IDmeilleure` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `membre`
+--
+ALTER TABLE `membre`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT pour la table `panier`
+--
+ALTER TABLE `panier`
+  MODIFY `IDpaiement` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `produit`
+--
+ALTER TABLE `produit`
+  MODIFY `IDproduit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT pour la table `vendeur`
+--
+ALTER TABLE `vendeur`
+  MODIFY `IDvendeur` int(11) NOT NULL AUTO_INCREMENT;
