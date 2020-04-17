@@ -1,0 +1,237 @@
+<html>
+    <head>
+       <meta charset="utf-8">
+        
+        <link rel="stylesheet" href="stylea.css" media="screen" type="text/css" />
+    </head>
+    <body>
+        <div id="container">
+            
+            
+            <form action="forminscription.php" method="POST">
+                
+                
+            <h1>Inscription</h1>
+               
+                
+                <table> 
+        <tr>
+            <td>Nom :</td>
+            <td><input type="text" placeholder="Entrer votre prénom" name="nom" required></td> </tr>
+                    <tr>
+            <td>Prénom :</td>
+                        <td><input type="text" placeholder="Entrer votre prénom" name="prenom" required><br></td> </tr>
+                    <tr>
+            <td>Adresse :</td>
+                        <td><input type="text" placeholder="Entrer votre adresse" name="adresse" required></td> </tr>
+                    <tr>
+            <td>Ville :</td>
+                        <td><input type="text" placeholder="Entrer votre ville" name="ville" required></td>
+                        
+                    
+                       <tr>
+            <td>Mail :</td>
+                        <td><input type="text" placeholder="Entrer votre mail" name="mail" required></td>
+
+                    </tr> 
+                    
+                       <tr>
+            <td>Mot de passe :</td>
+                        <td><input type="password" placeholder="Entrer le mot de passe" name="motdepasse" required></td>
+
+                    </tr> 
+                    
+                   
+                    
+                    
+                    <tr>
+
+                        <td colspan="2" align="center">
+                            <input type="submit" name="button2" value="Ajouter"></td>
+                </tr>
+            </table>
+                
+                
+                
+
+            </form>
+        </div>
+    </body>
+</html>
+
+
+<?php
+
+
+//recuperer les données venant de la page HTML
+$nom = isset($_POST["nom"])? $_POST["nom"] : "";
+$prenom = isset($_POST["prenom"])? $_POST["prenom"] : "";
+$adresse = isset($_POST["adresse"])? $_POST["adresse"] : "";
+$ville = isset($_POST["ville"])? $_POST["ville"] : "";
+$mail = isset($_POST["mail"])? $_POST["mail"] : "";
+$motdepasse = isset($_POST["motdepasse"])? $_POST["motdepasse"] : "";
+
+$j=0;
+//identifier votre BDD
+//connectez-vous dans votre BDD
+
+    define('DB_SERVER','localhost');
+    define('DB_USER',"root");
+    define('DB_PASS',"root");
+
+    $database = "notresite";
+
+    $db_handle = mysqli_connect(DB_SERVER,DB_USER,DB_PASS);
+
+//Rappel: votre serveur = localhost |votre login = root |votre password = <rien>
+    $db_found = mysqli_select_db($db_handle,$database);
+
+//si le bouton est cliqué
+if (isset($_POST["button1"])) {
+if ($db_found) {
+$sql = "SELECT * FROM membre";
+
+//test auteur
+if ($nom != "") {
+$sql .= " WHERE Nom LIKE '$nom'";
+$result = mysqli_query($db_handle, $sql);}
+
+//test d'année
+else if($prenom!=""){
+$sql .= " WHERE Prenom = '$prenom'";
+$result = mysqli_query($db_handle, $sql);}
+
+else if($adresse!=""){
+$sql .= " WHERE Adresse LIKE '$adresse'";
+$result = mysqli_query($db_handle, $sql);}
+    
+  else if($ville!=""){
+$sql .= " WHERE Ville LIKE '$ville'";
+$result = mysqli_query($db_handle, $sql);}  
+    
+   else if($mail!=""){
+$sql .= " WHERE Mail LIKE '$mail'";
+$result = mysqli_query($db_handle, $sql);}
+    
+    else if($motdepasse!=""){
+$sql .= " WHERE Motdepasse LIKE '$motdepasse'";
+$result = mysqli_query($db_handle, $sql);}
+    
+
+//champs vides
+else if($nom=="" && $prenom=="" && $adresse=="" && $ville=="" && $mail=="" && $motdepasse=="")
+{
+    $result = mysqli_query($db_handle, $sql);
+}
+
+//champ invalide
+else 
+    $result = mysqli_query($db_handle, $sql);
+
+
+//tester s'il y a de résultat
+
+
+
+if (mysqli_num_rows($result) == 0) {
+//le livre recherché n'existe pas
+echo "Membre not found";
+} else {
+
+//on trouve le livre recherché
+while ($data = mysqli_fetch_assoc($result)) {
+echo "ID: " . $data['ID'] . "<br>";
+echo "Nom: " . $data['Nom'] . "<br>";
+echo "Prénom: " . $data['Prénom'] . "<br>";
+echo "Adresse: " . $data['Adresse'] . "<br>";
+echo "Ville: " . $data['Ville'] . "<br>";
+echo "Mail: " . $data['Mail'] . "<br>"; 
+echo "Motdepasse: " . $data['Motdepasse'] . "<br>";  
+echo "<br>";
+}
+}
+} else {
+echo "Database not found";
+}
+}
+
+//clique sur AJOUTER
+
+
+else if (isset($_POST["button2"])) {
+if ($db_found) {
+$sql = "SELECT * FROM membre";
+
+if ($nom != "") {
+$sql .= " WHERE Nom LIKE '$nom'";
+$result = mysqli_query($db_handle, $sql);}
+
+//test d'année
+else if($prenom!=""){
+$sql .= " WHERE Prenom = '$prenom'";
+$result = mysqli_query($db_handle, $sql);}
+
+else if($adresse!=""){
+$sql .= " WHERE Adresse LIKE '$adresse'";
+$result = mysqli_query($db_handle, $sql);}
+    
+  else if($ville!=""){
+$sql .= " WHERE Ville LIKE '$ville'";
+$result = mysqli_query($db_handle, $sql);}  
+    
+   else if($mail!=""){
+$sql .= " WHERE Mail LIKE '$mail'";
+$result = mysqli_query($db_handle, $sql);}
+    
+    else if($motdepasse!=""){
+$sql .= " WHERE Motdepasse LIKE '$motdepasse'";
+$result = mysqli_query($db_handle, $sql);}
+
+//champs vides
+else if($nom=="" && $prenom=="" && $adresse=="" && $ville=="" && $mail=="" && $motdepasse=="")
+{
+    $result = mysqli_query($db_handle, $sql);
+    $j="1";
+}
+    
+//champ invalide
+else 
+{
+ echo "Champ invalide";
+    $result = mysqli_query($db_handle, $sql);
+}
+
+
+//tester s'il y a de résultat
+
+if ((mysqli_num_rows($result) == 0) && $j!='1')  {
+//le livre recherché n'existe pas
+$sql = "INSERT INTO membre(Nom, Prénom, Adresse, Ville, Mail, Motdepasse) VALUES('$nom', '$prenom', '$adresse', '$ville', '$mail','$motdepasse')";
+$result = mysqli_query($db_handle, $sql);
+if($result == NULL)
+    echo "merde";
+}
+
+ else if ((mysqli_num_rows($result) != 0) && $j!='1') {
+    echo "Il existe deja";
+}
+else {
+    echo "remplisser les champs svp";
+}
+
+
+} else {
+echo "Database not found"; 
+}
+}
+
+
+
+
+
+
+//fermer la connexion
+mysqli_close($db_handle);
+?>
+
+
