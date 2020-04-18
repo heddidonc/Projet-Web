@@ -1,0 +1,71 @@
+<html>
+    <head>
+       <meta charset="utf-8">
+        
+        <link rel="stylesheet" href="stylea.css" media="screen" type="text/css" />
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        
+        
+        
+    </head>
+    
+    
+    <body>
+        <div id="container">
+            
+            
+            <form action="forminscription.php" method="POST">
+                
+                
+            <h1>Inscription</h1>
+               
+                
+                <table> 
+        <tr>
+            <td>Nom :</td>
+            <td><input type="text" placeholder="Entrer votre prénom" name="nom" required></td> </tr>
+                    <tr>
+            <td>Prénom :</td>
+                        <td><input type="text" placeholder="Entrer votre prénom" name="prenom" required><br></td> </tr>
+                    <tr>
+            <td>Adresse :</td>
+                        <td><input type="text" placeholder="Entrer votre adresse" name="adresse" required></td> </tr>
+                    <tr>
+            <td>Ville :</td>
+                        <td><input type="text" placeholder="Entrer votre ville" name="ville" required></td>
+                        
+                    
+                       <tr>
+            <td>Mail :</td>
+                        <td><input type="text" placeholder="Entrer votre mail" name="mail" required></td>
+
+                    </tr> 
+                    
+                       <tr>
+            <td>Mot de passe :</td>
+                        <td><input type="password" placeholder="Entrer le mot de passe" name="motdepasse" required></td>
+
+                    </tr> 
+                    
+                   
+                    
+                    
+                    <tr>
+
+                        <td colspan="2" align="center">
+                            <input type="submit" name="button2" value="Ajouter"></td>
+                </tr>
+            </table>
+                
+                
+                
+
+            </form>
+        </div>
+    </body>
+</html>
