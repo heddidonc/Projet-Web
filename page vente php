@@ -1,0 +1,73 @@
+<?php
+//recuperer les données venant de la page HTML
+
+$item = isset($_POST["item"])? $_POST["item"] : ""; 
+$prix = isset($_POST["prix"])? $_POST["prix"] : ""; 
+$description = isset($_POST["description"])? $_POST["description"] : ""; 
+
+
+//identifier votre BDD
+
+
+    define('DB_SERVER','localhost');
+    define('DB_USER',"root");
+    define('DB_PASS',"root");
+
+    $database = "notresite";
+
+    $db_handle = mysqli_connect(DB_SERVER,DB_USER,DB_PASS);
+
+//Rappel: votre serveur = localhost |votre login = root |votre password = <rien>
+    $db_found = mysqli_select_db($db_handle,$database);
+
+
+if ($_POST["button2"]) { 
+    if ($db_found) {
+        $sql = "SELECT * FROM achatimmediat"; 
+        if ($item != "") {
+                     //on cherche le livre avec les paramètres titre et auteur
+            $sql .= " WHERE Item LIKE '%$item%'";
+            if ($prix != "") {
+                $sql .= " AND prix LIKE '%$prix%'";
+} 
+        }
+        $result = mysqli_query($db_handle, $sql);
+        //regarder s'il y a de résultat
+        if (mysqli_num_rows($result) != 0) {
+       //le livre est déjà dans la BDD
+            echo "Vente already exists.
+Duplicate of book of same title and author not allowed.";
+} else {
+            
+    $sql = "INSERT INTO achatimmediat(Item, Prix, Description) VALUES('$item', '$prix', '$description')";
+            $result = mysqli_query($db_handle, $sql); 
+            echo "Add successful." . "<br>";
+            //on affiche le livre ajouté
+            $sql = "SELECT * FROM achatimmediat";
+            
+            if ($item != "") {
+//on cherche le livre avec les paramètres titre et auteur 
+                $sql .= " WHERE Item LIKE '%$item%'";
+                if ($prix != "") {
+                    $sql .= " AND Prix LIKE '%$prix%'";
+}
+            }
+
+            $result = mysqli_query($db_handle, $sql);
+            while ($data = mysqli_fetch_assoc($result)) {
+                echo "Informations sur l'article ajoutée:" . "<br>"; 
+                echo "ID: " . $data['ID'] . "<br>";
+                echo "Item: " . $data['Item'] . "<br>";
+                echo "Prix: " . $data['Prix'] . "<br>";
+                echo "Description: " . $data['Description'] . "<br>";
+                
+                echo "<br>";
+}
+        }
+} else {
+echo "Database not found";
+} }
+//fermer la connexion
+mysqli_close($db_handle);
+
+?>
