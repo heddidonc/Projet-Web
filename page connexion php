@@ -1,0 +1,66 @@
+   <?php
+//recuperer les données venant de la page HTML
+$mail = isset($_POST["mail"])? $_POST["mail"] : ""; 
+$motdepasse = isset($_POST["motdepasse"])? $_POST["motdepasse"] : ""; 
+
+
+
+//connectez-vous dans votre BDD
+//Rappel: votre serveur = localhost |votre login = root |votre password = <rien> 
+
+define('DB_SERVER','localhost');
+    define('DB_USER',"root");
+    define('DB_PASS',"root");
+
+    $database = "notresite";
+
+    $db_handle = mysqli_connect(DB_SERVER,DB_USER,DB_PASS);
+
+//Rappel: votre serveur = localhost |votre login = root |votre password = <rien>
+    $db_found = mysqli_select_db($db_handle,$database);
+
+//si le bouton est cliqué
+if ($_POST["button1"]) { 
+    if ($db_found) {
+        $sql = "SELECT * FROM membre"; 
+        if ($mail != "") {
+                     //on cherche le livre avec les paramètres titre et auteur
+            $sql .= " WHERE Mail LIKE '%$mail%'"; 
+            if ($motdepasse != "") {
+                $sql .= " AND Motdepasse LIKE '%$motdepasse%'";
+}
+        }
+$result = mysqli_query($db_handle, $sql);
+//tester s'il y a de résultat
+if (mysqli_num_rows($result) == 0) {
+    //le livre recherché n'existe pas
+    echo "Membre not found";
+} else {
+                     //on trouve le livre recherché
+    while ($data = mysqli_fetch_assoc($result)) {
+        echo "ID: " . $data['ID'] . "<br>";
+        echo "Nom: " . $data['Nom'] . "<br>"; 
+        echo "Prénom: " . $data['Prénom'] . "<br>"; 
+        echo "Adresse: " . $data['Adresse'] . "<br>"; 
+        echo "Ville: " . $data['Ville'] . "<br>"; 
+        echo "Mail: " . $data['Mail'] . "<br>"; 
+        echo "Motdepasse: " . $data['Motdepasse'] . "<br>"; 
+        
+        echo "<br>";
+        
+        
+        
+        
+}
+}
+        
+} else {
+        echo "Database not found";
+} 
+}
+//fermer la connexion
+mysqli_close($db_handle);
+
+?>    
+    
+    
