@@ -15,18 +15,23 @@
     .navbar {
       margin-bottom: 100px;
       border-radius: 0;
+        
     }
     
     /* Remove the jumbotron's default bottom margin */ 
      .jumbotron {
       margin-bottom: 0;
-         background-image: url("eceimage.png");
-          background-color: #fafafa;
+         background-image: url("dune.jpg");
+          color:whitesmoke;
+         background-size: cover;
+    background-position: center;
+    position: relative;
     }
    
     /* Add a gray background color and some padding to the footer */
     footer {
-      background-color: #f2f2f2;
+      background-color: dimgrey;
+        color:whitesmoke;
       padding: 25px;
     }
     
@@ -117,11 +122,11 @@ button {
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Accueil</a></li>
-        <li><a href="#">Catégorie</a></li>
-        <li><a href="#">Achats</a></li>
-        <li><a href="#">Vendre</a></li>
-        <li><a href="#">Contact</a></li>
+        <li class="active"><a href="accueil.html">Accueil</a></li>
+        <li><a href="#">Products</a></li>
+        <li><a href="achat.html">Achats</a></li>
+        <li><a href="formvente.html">Vendre</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#"><span class="glyphicon glyphicon-user"></span> Votre Compte </a></li>
@@ -194,12 +199,14 @@ button {
         <input type="text" id="name" name="user_name">
     </div>
     <div>
-        <label for="mail">e-mail :</label>
+        <label for="mail">Mail :</label>
         <input type="email" id="mail" name="user_mail">
     </div>
     <div>
+        
         <label for="msg">Message :</label>
         <textarea id="msg" name="user_message"></textarea>
+        
     </div>
     
     <div class="button">
