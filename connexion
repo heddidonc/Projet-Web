@@ -1,0 +1,56 @@
+<html>
+    <head>
+       <meta charset="utf-8">
+        
+        <link rel="stylesheet" href="stylea.css" media="screen" type="text/css" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        
+        
+    </head>
+    <body>
+        <div id="container">
+           
+            
+            
+<form action="formconnexion.php" method="post">
+        <table> 
+            <h2> Connexion </h2>
+            <tr>
+                <td>Mail :</td>
+                <td><input type="text" placeholder="Entrer votre adresse mail" name="username" required><br></td>
+            </tr>
+
+            <tr>
+                <td>Mot de passe : </td>
+                <td><input type="password" placeholder="Entrer le mot de passe" name="password" required>
+</td>
+            </tr>
+
+            
+
+        
+            <tr>
+                <td colspan="2" align="center">
+                    <br>
+                    <a href="accueil.html">
+                    <input type="submit" name="button1" value="Rechercher">
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td align="center"><a href="accueil.html">Se connecter</a></td>
+
+            </tr>
+
+        </table>
+    </form>
+
+
+    
+
+        </div>
+    </body>
+</html>
