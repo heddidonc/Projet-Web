@@ -1,3 +1,59 @@
+<?php
+//recuperer les données venant de la page HTML
+session_start();
+
+
+//connectez-vous dans votre BDD
+//Rappel: votre serveur = localhost |votre login = root |votre password = <rien> 
+
+  $database= new PDO('mysql:host=localhost;dbname=heddi','root','');
+
+
+//Rappel: votre serveur = localhost |votre login = root |votre password = <rien>
+
+
+//si le bouton est cliqué
+if(isset($_POST['button1'])){
+
+
+    $email=$_POST['email'];
+    $mdp=$_POST['password'];
+    if(!empty($email) AND !empty($mdp) ){
+
+        $req = $database->prepare('SELECT * FROM membre WHERE Mail= ? AND Motdepasse = ?');
+        $req->execute(array($email,$mdp));
+        $membreexiste = $req-> rowCount();
+        
+        if($membreexiste == 1){
+            $sql = $req->fetch();
+            $_SESSION['IDmembre'] = $sql['IDmembre'];
+            $_SESSION['email'] = $sql['email'];
+            header("Location: Accueil.php"); // Ici tu mets vers quoi tu veux rediriger l'utilisateur
+            
+        }
+        else{
+
+        $text = '<div class="alert alert-success">Le compte n\'existe pas !</div>';
+
+        echo $text;
+        }
+
+    }else{
+        $info = '<div class="alert alert-success">Votre inscription a bien été enregistrée !</div>';
+
+    }
+    
+}
+
+//fermer la connexion
+
+?>    
+    
+    
+
+
+
+
 <html>
     <head>
        <meta charset="utf-8">
@@ -12,15 +68,14 @@
     </head>
     <body>
         <div id="container">
-           
+        
             
-            
-<form action="formconnexion.php" method="post">
+<form action="" method="post">
         <table> 
             <h2> Connexion </h2>
             <tr>
                 <td>Mail :</td>
-                <td><input type="text" placeholder="Entrer votre adresse mail" name="username" required><br></td>
+                <td><input type="text" placeholder="Entrer votre adresse mail" name="email" required><br></td>
             </tr>
 
             <tr>
